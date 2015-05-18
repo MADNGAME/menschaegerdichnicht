@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.Random;
+
 import model.*;
 
 public class Controller implements IController {
@@ -21,9 +23,12 @@ public class Controller implements IController {
 	
 	
 	public void dice() {
-		dice =(int) (Math.random() * 6) + 1;
+		Random r = new Random();
+		dice = r.nextInt(6) + 1;
 	}
 
+	
+	
 	public boolean move(int idx) {
 		if(gamefield.setStone(idx, 'x') && gamefield.setStone(idx + dice, currentplayer.getColor())) {
 			return true;
@@ -42,6 +47,13 @@ public class Controller implements IController {
 	
 	public char getVertexColorHouse(int player, int idx) {
 		return gamefield.getStoneColorHouse(player, idx);
+	}
+	
+	public boolean getOutOfTheHouse() {
+		if(gamefield.StoneInBlock(currentplayer.getIdx()) && gamefield.inFrontOfHouseEmpty(currentplayer.getIdx()))
+			return true;
+			
+		return false;
 	}
 	
 }

@@ -5,12 +5,15 @@ public class GameField {
 	private vertex[] gamefield;
 	private vertex[][] block;
 	private vertex[][] house;
+	private final char color[] = {'R','B','G','P'}; 
+	private final int startposition[] = {30, 0, 10 ,20};
+	
 	
 	private final int POSITIONS = 40;
 	private final int PLAYER = 4;
 	private final int HOUSESIZE = 4;
 	private final int BLOCKSIZE = 4;
-	private final char color[] = {'R','B','G','P'}; 
+	
 	
 	private class vertex {
 		public char color;
@@ -50,14 +53,14 @@ public class GameField {
 		}
 	}
 	
-	public boolean setStone(int idx, char color) {
-		if(0 >= idx || idx >= POSITIONS)
-			return false;
+	
+/////////////////////////////////////////////////
+	
+	
+	
+	
+	
 		
-		gamefield[idx].color = color;
-		
-		return true;
-	}
 	
 	public char getStoneColor(int idx) {
 		if(0 > idx || idx >= POSITIONS)
@@ -72,6 +75,33 @@ public class GameField {
 	
 	public char getStoneColorHouse(int player, int idx) {
 		return house[player][idx].color;
+	}
+	
+/////////////////////////////////////////////////
+	
+	//Boolean
+	public boolean setStone(int idx, char color) {
+		if(0 >= idx || idx >= POSITIONS)
+			return false;
+		
+		gamefield[idx].color = color;
+		
+		return true;
+	}
+	
+	
+	public boolean StoneInBlock(int player) {
+		boolean stone = false;
+		for(int i = 0; i < BLOCKSIZE;i++)
+			stone = stone || block[player][i].color == color[player];
+		return stone;
+	}
+	
+	public boolean inFrontOfHouseEmpty(int player) {
+		if(color[player] != gamefield[startposition[player]].color)
+			return true;
+		
+		return false;
 	}
 	
 }
