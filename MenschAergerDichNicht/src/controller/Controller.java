@@ -50,7 +50,7 @@ public class Controller implements IController {
 	}
 	
 	public boolean getOutOfTheHouse() {
-		if(gamefield.StoneInBlock(currentplayer.getIdx()) && gamefield.inFrontOfHouseEmpty(currentplayer.getIdx()))
+		if(gamefield.StoneInBlock(currentplayer.getIdx()) && gamefield.moveOutOfHouse(currentplayer.getIdx()))
 			return true;
 			
 		return false;
