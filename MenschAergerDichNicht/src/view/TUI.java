@@ -10,7 +10,7 @@ public class TUI {
 		this.c = c;
 	}
 	
-	private static void display() {
+	private void display() {
 		System.out.print(" " + c.getVertexColorBlock(0, 0) + " " + c.getVertexColorBlock(0, 1) + "    |" + c.getVertexColor(38) + "-" + c.getVertexColor(39) + "-" + c.getVertexColor(0)  + "|    " + c.getVertexColorBlock(1, 0) + " " + c.getVertexColorBlock(1, 1) + " ");
 		System.out.println("			        |38390|        ");
 		System.out.print(" " + c.getVertexColorBlock(0, 2) + " " + c.getVertexColorBlock(0, 3) + "    |" + c.getVertexColor(37) + "|"+ c.getVertexColorHouse(1, 0) +"|" + c.getVertexColor(1) + "|    " + c.getVertexColorBlock(1, 2) + " " + c.getVertexColorBlock(1, 3) + " ");
