@@ -4,7 +4,7 @@ import controller.Controller;
 
 public class TUI {
 
-	private static Controller c;
+	private Controller c;
 	
 	public TUI(Controller c) {
 		this.c = c;
@@ -38,7 +38,7 @@ public class TUI {
 	}
 	
 	
-	public static void main(String[] args) {
+	public void main(String[] args) {
 		TUI tui = new TUI(new Controller());
 		tui.display();
 	}
