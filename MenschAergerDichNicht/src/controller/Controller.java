@@ -7,6 +7,7 @@ import model.*;
 public class Controller implements IController {
 
 	private GameField gamefield;
+	@SuppressWarnings("unused")
 	private Player player0, player1, player2, player3, currentplayer;
 	private int dice;
 	
@@ -14,8 +15,8 @@ public class Controller implements IController {
 		gamefield = new GameField();
 		player0 = new Player(0, "Hans", 'R');
 		player1 = new Player(1, "Peter", 'B');
-		player2 = new Player(2, "Meier", 'G');
-		player3 = new Player(3, "HansWurst", 'P');
+		player2 = new Player(2, "Kurt", 'G');
+		player3 = new Player(3, "Marco", 'P');
 		
 		currentplayer = player0;
 	}
