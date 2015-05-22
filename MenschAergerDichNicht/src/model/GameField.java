@@ -81,7 +81,7 @@ public class GameField {
 	
 	public boolean getStoneBlock(int player) {
 		for(int i = 0; i < BLOCKSIZE; i++) {
-			if(block[player][i].color != color[player]) {
+			if(block[player][i].color == color[player]) {
 				block[player][i].color = ' ';
 				return true;
 			}
@@ -108,7 +108,7 @@ public class GameField {
 	}
 	
 	//Boolean
-	public boolean StoneInBlock(int player) {
+	public boolean stoneInBlock(int player) {
 		boolean stone = false;
 		for(int i = 0; i < BLOCKSIZE;i++)
 			stone = stone || block[player][i].color == color[player];

@@ -42,12 +42,15 @@ public class GameFieldTest {
 		assertTrue(gamefield.setStone(5, 'B'));
 	}
 	
-//	@Test
-//	public void testStoneInBlock () {
-//		assertFalse(gamefield.StoneInBlock(0));
-//		gamefield.getStoneBlock(0);
-//		assertTrue(gamefield.StoneInBlock(0));
-//	}
+	@Test
+	public void teststoneInBlock () {
+		assertTrue(gamefield.stoneInBlock(0));
+		gamefield.getStoneBlock(0);
+		gamefield.getStoneBlock(0);
+		gamefield.getStoneBlock(0);
+		gamefield.getStoneBlock(0);
+		assertFalse(gamefield.stoneInBlock(0));
+	}
 
 	@Test
 	public void testmoveOutOfHouse () {
@@ -56,28 +59,27 @@ public class GameFieldTest {
 		assertFalse(gamefield.moveOutOfHouse(0));
 	}
 
-//	@Test
-//	public void testsetStoneBlock() {
-//		assertFalse(gamefield.setStoneBlock(0));
-//		gamefield.getStoneBlock(0);
-//		assertTrue(gamefield.setStoneBlock(0));
-//	}
+	@Test
+	public void testsetStoneBlock() {
+		assertFalse(gamefield.setStoneBlock(0));
+		gamefield.getStoneBlock(0);
+		assertTrue(gamefield.setStoneBlock(0));
+	}
 	
-//	@Test
-//	public void testsetStoneHouse() {
-//		assertFalse(gamefield.setStoneHouse(4,0));
-//		assertFalse(gamefield.setStoneHouse(-5, 0));
-//		assertTrue(gamefield.setStoneHouse(2, 0));
-//		assertFalse(gamefield.setStoneHouse(2, 0));
-//	}
+	@Test
+	public void testsetStoneHouse() {
+		assertFalse(gamefield.setStoneHouse(0,4));
+		assertFalse(gamefield.setStoneHouse(0, -1));
+		assertTrue(gamefield.setStoneHouse(2, 0));
+		assertFalse(gamefield.setStoneHouse(2, 0));
+	}
 	
-//	@Test
-//	public void testgetStoneBlock() {
-//		assertTrue(gamefield.getStoneBlock(0));
-//		gamefield.getStoneBlock(0);
-//		gamefield.getStoneBlock(0);
-//		gamefield.getStoneBlock(0);
-//		assertFalse(gamefield.getStoneBlock(0));
-//		
-//	}
+	@Test
+	public void testgetStoneBlock() {
+		assertTrue(gamefield.getStoneBlock(0));
+		gamefield.getStoneBlock(0);
+		gamefield.getStoneBlock(0);
+		gamefield.getStoneBlock(0);
+		assertFalse(gamefield.getStoneBlock(0));	
+	}
 }
