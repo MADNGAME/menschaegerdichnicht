@@ -19,6 +19,7 @@ public class Controller implements IController {
 		player3 = new Player(3, "Marco", 'P');
 		
 		currentplayer = player0;
+		
 	}
 		
 	public void dice() {
