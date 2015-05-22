@@ -23,7 +23,7 @@ public class Controller implements IController {
 	public void dice() {
 		Random r = new Random();
 		dice = r.nextInt(6) + 1;
-	}	
+	}
 	
 	public boolean move(int idx) {
 		if(gamefield.setStone(idx, 'x') && gamefield.setStone(idx + dice, currentplayer.getColor())) {

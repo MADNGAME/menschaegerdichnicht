@@ -107,18 +107,19 @@ public class GameField {
 		return true;		
 	}
 	
+	public boolean moveOutOfHouse(int player) {
+		if(color[player] != gamefield[startposition[player]].color) {
+			gamefield[startposition[player]].color = color[player];
+			return true;
+		}
+		return false;
+	}
+	
 	//Boolean
 	public boolean stoneInBlock(int player) {
 		boolean stone = false;
 		for(int i = 0; i < BLOCKSIZE;i++)
 			stone = stone || block[player][i].color == color[player];
 		return stone;
-	}
-	
-	public boolean moveOutOfHouse(int player) {
-		if(color[player] != gamefield[startposition[player]].color)
-			return true;
-		
-		return false;
 	}	
 }
