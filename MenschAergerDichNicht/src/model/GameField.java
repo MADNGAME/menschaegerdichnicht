@@ -8,12 +8,10 @@ public class GameField {
 	private final char color[] = {'R','B','G','P'}; 
 	private final int startposition[] = {30, 0, 10 ,20};
 	
-	
 	private final int POSITIONS = 40;
 	private final int PLAYER = 4;
 	private final int HOUSESIZE = 4;
 	private final int BLOCKSIZE = 4;
-	
 	
 	private class vertex {
 		public char color;
@@ -39,28 +37,19 @@ public class GameField {
 				block[i][k] = new vertex(color[i]);
 	}
 	
-	
 	private void fillHouse() {
 		for(int i = 0; i < PLAYER; i++)
 			for(int k = 0; k < HOUSESIZE; k++) 
 				house[i][k] = new vertex(' ');
 	}
-
-
+	
 	private void fillGameField() {
 		for(int i = 0; i < POSITIONS ; i++) {
 			gamefield[i] = new vertex('x');
 		}
 	}
 	
-	
 /////////////////////////////////////////////////
-	
-	
-	
-	
-	
-		
 	
 	public char getStoneColor(int idx) {
 		if(0 > idx || idx >= POSITIONS)
@@ -126,12 +115,10 @@ public class GameField {
 		return stone;
 	}
 	
-	
 	public boolean moveOutOfHouse(int player) {
 		if(color[player] != gamefield[startposition[player]].color)
 			return true;
 		
 		return false;
-	}
-	
+	}	
 }
