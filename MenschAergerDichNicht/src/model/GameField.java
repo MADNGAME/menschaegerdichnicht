@@ -2,9 +2,9 @@ package model;
 
 public class GameField {
 
-	private vertex[] gamefield;
-	private vertex[][] block;
-	private vertex[][] house;
+	private token[] gamefield;
+	private token[][] block;
+	private token[][] house;
 	private final char color[] = {'R','B','G','P'}; 
 	private final int startposition[] = {30, 0, 10 ,20};
 	
@@ -13,18 +13,18 @@ public class GameField {
 	private final int HOUSESIZE = 4;
 	private final int BLOCKSIZE = 4;
 	
-	private class vertex {
+	private class token {
 		public char color;
 	
-		public vertex(char color) {
+		public token(char color) {
 			this.color = color;
 		}
 	}
 	
 	public GameField() {
-		gamefield = new vertex[POSITIONS];
-		block = new vertex[PLAYER][BLOCKSIZE];
-		house = new vertex[PLAYER][HOUSESIZE];
+		gamefield = new token[POSITIONS];
+		block = new token[PLAYER][BLOCKSIZE];
+		house = new token[PLAYER][HOUSESIZE];
 		
 		fillGameField();
 		fillHouse();
@@ -34,22 +34,20 @@ public class GameField {
 	private void fillBlock() {
 		for(int i = 0; i < PLAYER; i++)
 			for(int k = 0; k < BLOCKSIZE; k++) 
-				block[i][k] = new vertex(color[i]);
+				block[i][k] = new token(color[i]);
 	}
 	
 	private void fillHouse() {
 		for(int i = 0; i < PLAYER; i++)
 			for(int k = 0; k < HOUSESIZE; k++) 
-				house[i][k] = new vertex(' ');
+				house[i][k] = new token(' ');
 	}
 	
 	private void fillGameField() {
 		for(int i = 0; i < POSITIONS ; i++) {
-			gamefield[i] = new vertex('x');
+			gamefield[i] = new token('x');
 		}
 	}
-	
-/////////////////////////////////////////////////
 	
 	public char getStoneColor(int idx) {
 		if(0 > idx || idx >= POSITIONS)
