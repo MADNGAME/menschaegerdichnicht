@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import controller.Controller;
 
-
+//TEST
 public class ControllerTest {
 	
 	private Controller controller;
