@@ -119,5 +119,5 @@ public class GameField {
 		for(int i = 0; i < BLOCKSIZE;i++)
 			stone = stone || block[player][i].color == color[player];
 		return stone;
-	}	
+	}
 }

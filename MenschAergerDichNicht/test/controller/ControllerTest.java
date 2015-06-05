@@ -29,18 +29,18 @@ public class ControllerTest {
 	}
 	
 	@Test
-	public void testgetVertexColor() {
-		assertEquals('x', controller.getVertexColor(0));
+	public void testgetTokenColor() {
+		assertEquals('x', controller.getTokenColor(0));
 	}
 	
 	@Test
-	public void testgetVertexColorBlock() {
-		assertEquals('R', controller.getVertexColorBlock(0, 0));
+	public void testgetTokenColorBlock() {
+		assertEquals('R', controller.getTokenColorBlock(0, 0));
 	}
 	
 	@Test
-	public void testgetVertexColorHouse() {
-		assertEquals(' ', controller.getVertexColorHouse(0, 0));
+	public void testgetTokenColorHouse() {
+		assertEquals(' ', controller.getTokenColorHouse(0, 0));
 	}
 	
 	@Test

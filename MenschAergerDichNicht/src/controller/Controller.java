@@ -19,7 +19,6 @@ public class Controller implements IController {
 		player3 = new Player(3, "Marco", 'P');
 		
 		currentplayer = player0;
-		
 	}
 		
 	public void dice() {
@@ -34,22 +33,22 @@ public class Controller implements IController {
 		return false;
 	}
 	
-	public char getVertexColor(int idx) {
-		return gamefield.getStoneColor(idx);
-	}
-	
-	public char getVertexColorBlock(int player, int idx) {
-		return gamefield.getStoneColorBlock(player, idx);
-	}
-	
-	public char getVertexColorHouse(int player, int idx) {
-		return gamefield.getStoneColorHouse(player, idx);
-	}
-	
 	public boolean getOutOfTheHouse() {
 		if(gamefield.stoneInBlock(currentplayer.getIdx()) && gamefield.moveOutOfHouse(currentplayer.getIdx()))
 			return true;
 			
 		return false;
 	}	
+	
+	public char getTokenColor(int idx) {
+		return gamefield.getStoneColor(idx);
+	}
+	
+	public char getTokenColorBlock(int player, int idx) {
+		return gamefield.getStoneColorBlock(player, idx);
+	}
+	
+	public char getTokenColorHouse(int player, int idx) {
+		return gamefield.getStoneColorHouse(player, idx);
+	}
 }
