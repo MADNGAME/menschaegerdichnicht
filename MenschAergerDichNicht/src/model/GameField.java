@@ -69,12 +69,24 @@ public class GameField {
 	//true bei Erfolg
 	public boolean setStone(int idx, char color) {
 		idx = idx % POSITIONS;
-		if(0 > idx)
+		if(0 > idx && gamefield[idx].color != color)
 			return false;
 		
 		gamefield[idx].color = color;
 		
 		return true;
+	}
+	
+	public int throwPlayer(int idx, char color) {
+		idx = idx % POSITIONS;
+		if(0 > idx && gamefield[idx].color == color)
+			return -1;
+		
+		for(int i = 0; i < PLAYER; i++)
+			if(this.color[i] == gamefield[idx].color)
+				return i;
+		
+		return -1;				
 	}
 	
 	public boolean getStoneBlock(int player) {
@@ -88,7 +100,7 @@ public class GameField {
 	}
 	
 	public boolean setStoneBlock(int player) {
-		for(int i = 3; i >= 0 ;i--) {
+		for(int i = 3; i >= 0; i--) {
 			if(block[player][i].color != color[player]) {
 				block[player][i].color = color[player];
 				return true;

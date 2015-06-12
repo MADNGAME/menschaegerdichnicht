@@ -27,7 +27,12 @@ public class Controller implements IController {
 	}
 	
 	public boolean move(int idx) {
-		if(gamefield.setStone(idx, 'x') && gamefield.setStone(idx + dice, currentplayer.getColor())) {
+		int player = gamefield.throwPlayer(idx + dice, currentplayer.getColor());
+		
+		if(player > 0)
+			gamefield.setStoneBlock(player);
+		
+		if(gamefield.setStone(idx + dice, currentplayer.getColor()) && gamefield.setStone(idx, 'x')) {
 			return true;
 		}
 		return false;
