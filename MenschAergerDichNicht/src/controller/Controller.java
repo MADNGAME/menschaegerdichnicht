@@ -27,6 +27,9 @@ public class Controller implements IController {
 	}
 	
 	public boolean move(int idx) {
+		if(gamefield.stoneOnGamefield(currentplayer.getIdx()) == 0)
+			return false;
+		
 		int player = gamefield.throwPlayer(idx + dice, currentplayer.getColor());
 		
 		if(player > 0)
@@ -38,7 +41,7 @@ public class Controller implements IController {
 		return false;
 	}
 	
-	public boolean getOutOfTheHouse() {
+	public boolean getOutOfBlock() {
 		if(gamefield.stoneInBlock(currentplayer.getIdx()) && gamefield.moveOutOfHouse(currentplayer.getIdx()))
 			return true;
 			

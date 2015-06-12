@@ -44,9 +44,9 @@ public class ControllerTest {
 	}
 	
 	@Test
-	public void testgetOutOfHouse() {
-		assertTrue(controller.getOutOfTheHouse());
-		assertFalse(controller.getOutOfTheHouse());
+	public void testgetOutOfBlock() {
+		assertTrue(controller.getOutOfBlock());
+		assertFalse(controller.getOutOfBlock());
 	}
 
 }

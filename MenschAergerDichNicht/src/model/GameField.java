@@ -96,7 +96,7 @@ public class GameField {
 				return true;
 			}
 		}
-		return false;		
+		return false;
 	}
 	
 	public boolean setStoneBlock(int player) {
@@ -123,6 +123,15 @@ public class GameField {
 			return true;
 		}
 		return false;
+	}
+	
+	public int stoneOnGamefield(int player) {
+		int count = 0;
+		for(int idx = 0; idx < POSITIONS; idx++) 
+			if(gamefield[idx].color == color[player])
+				count++;
+		
+		return count;
 	}
 	
 	//Boolean
