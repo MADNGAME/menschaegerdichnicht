@@ -3,13 +3,6 @@ package controller;
 public interface IController {
 
 	/*
-	 * This function dice a random number between 1 and 6.
-	 */
-	
-	void dice();
-	
-	
-	/*
 	 * This function controlls the move option from each
 	 * token. It checks when the player can move
 	 * out of his house or a player can move his token

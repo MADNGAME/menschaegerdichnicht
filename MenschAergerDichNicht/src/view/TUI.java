@@ -1,16 +1,20 @@
 package view;
 
+import Observer.IObserver;
+import model.Player;
 import controller.Controller;
 
-public class TUI {
+public class TUI implements IObserver {
 
 	private Controller c;
 	
 	public TUI(Controller c) {
 		this.c = c;
+		c.registerObserver(this);
+		display();
 	}
 	
-	private void display() {
+	public void display() {
 		System.out.print(" " + c.getTokenColorBlock(0, 0) + " " + c.getTokenColorBlock(0, 1) + "    |" + c.getTokenColor(38) + "-" + c.getTokenColor(39) + "-" + c.getTokenColor(0)  + "|    " + c.getTokenColorBlock(1, 0) + " " + c.getTokenColorBlock(1, 1) + " ");
 		System.out.println("			        |38390|        ");
 		System.out.print(" " + c.getTokenColorBlock(0, 2) + " " + c.getTokenColorBlock(0, 3) + "    |" + c.getTokenColor(37) + "|"+ c.getTokenColorHouse(1, 0) +"|" + c.getTokenColor(1) + "|    " + c.getTokenColorBlock(1, 2) + " " + c.getTokenColorBlock(1, 3) + " ");
@@ -33,12 +37,26 @@ public class TUI {
 		System.out.println("			        |21 17|        ");
 		System.out.print(" " + c.getTokenColorBlock(3,2) + " " + c.getTokenColorBlock(3,3) + "    |" + c.getTokenColor(20) + "-"+ c.getTokenColor(19) +"-" + c.getTokenColor(18) + "|    " + c.getTokenColorBlock(2,2) + " " + c.getTokenColorBlock(2,3) + " ");
 		System.out.println("			        |201918           \n");
-		System.out.println("---------------------------------------------------------------");
+		System.out.println("________________________________________________________________");
 		
 	}
+
+	public boolean noInput() {
+		return c.moveStart();
+	}
+	
+	public boolean handleInput(int token) {
+		return c.move(token);
+	}
+
+	public void update(Player currentPlayer, boolean gameEnded) {
+		if (gameEnded)
+			System.out.println(currentPlayer.getName() + " hat gewonnen!");
 		
-	public static void main(String[] args) {
-		TUI tui = new TUI(new Controller());
-		tui.display();
+		display();
+	}
+
+	public void showDice(Player currentplayer, int dice) {
+		System.out.println(currentplayer.getName() + " hat eine " + dice + " gewürfelt");		
 	}
 }
