@@ -106,6 +106,26 @@ public class Controller implements IController, IObservable {
 			currentplayer = player0;			
 	}
 	
+	/*class Fan {
+private FanState currentState;
+public Fan() {
+currentState = new Off();
+}
+public void setState( FanState s ) {
+currentState = s;
+}
+public void pull() {
+currentState.pull( this );
+} }
+interface FanState {
+void pull( Fan fan );
+}
+class Off/Low/Medium/High implements FanState { //likewise for Low, Medium, High
+public void pull( Fan fan ) {
+fan.setState( new Low() );
+System.out.println( " low speed" );
+} }*/
+	
 	public void registerObserver(IObserver observer) {
 		observers.add(observer);
 	}
